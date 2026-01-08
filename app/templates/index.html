@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ba Zi Destiny Reader</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+SC:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="bagua-frame">
+            <div class="inner-content">
+                <header>
+                    <div class="yinyang-symbol"></div>
+                    <h1>Ba Zi Destiny - Master Su's words</h1>
+                    <p>Unlock the secrets of your Eight Characters</p>
+                </header>
+
+                <form id="destinyForm">
+                    <div class="form-group">
+                        <label for="birthday">Date of Birth</label>
+                        <input type="date" id="birthday" name="birthday" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birth_time">Time of Birth</label>
+                        <input type="time" id="birth_time" name="birth_time" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Birth Location</label>
+                        <input type="text" id="location" name="location" placeholder="City, Country" required>
+                    </div>
+
+                    <button type="submit" id="submitBtn">Reveal Destiny</button>
+                </form>
+
+                <div id="result-container" class="hidden">
+                    <div class="divider"></div>
+                    <div id="result-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

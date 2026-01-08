@@ -1,0 +1,196 @@
+:root {
+    --bg-color: #fdfbf7;
+    --text-color: #2c2c2c;
+    --accent-color: #8b0000; /* Dark red for traditional Chinese accent */
+    --border-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Serif SC', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+}
+
+/* Bagua Frame - mimicking the octagonal shape via border radius or clip-path could be complex,
+   using a simple heavy border with rounded corners for now with a stylistic approach */
+.bagua-frame {
+    background-color: #fff;
+    border: 4px double var(--border-color);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corners */
+.bagua-frame::before, .bagua-frame::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.bagua-frame::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.bagua-frame::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Yin Yang Symbol CSS */
+.yinyang-symbol {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(to bottom, #000 0%, #000 50%, #fff 50%, #fff 100%);
+    border-radius: 50%;
+    border: 2px solid #000;
+    margin: 0 auto;
+    position: relative;
+    animation: rotate 10s linear infinite;
+}
+
+.yinyang-symbol::before, .yinyang-symbol::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.yinyang-symbol::before {
+    background: #fff;
+    border: 6px solid #000;
+    top: 25%;
+}
+
+.yinyang-symbol::after {
+    background: #000;
+    border: 6px solid #fff;
+    top: 75%;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--text-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-container {
+    margin-top: 30px;
+    animation: fadeIn 1s ease;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+    margin-bottom: 20px;
+}
+
+#result-content {
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+#result-content h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+#result-content ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

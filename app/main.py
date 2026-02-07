@@ -10,10 +10,10 @@ from typing import AsyncIterable
 app = FastAPI()
 
 # Mount static files
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+app.mount("/static", StaticFiles(directory="/Users/richardbot/code/prophecynet/app/static"), name="static")
 
 # Setup templates
-templates = Jinja2Templates(directory="app/templates")
+templates = Jinja2Templates(directory="/Users/richardbot/code/prophecynet/app/templates")
 
 # Configure Gemini API
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
@@ -30,7 +30,7 @@ async def generate_astrology_reading(birthday: str, birth_time: str, location: s
         return
 
     try:
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-2.5-flash-lite')
 
         prompt = (
             f"You are a wise Chinese astrologer. A person was born on {birthday} at {birth_time} "
